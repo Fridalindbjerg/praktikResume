@@ -1,0 +1,76 @@
+html {
+  --marginTop: 10px;
+  --marginBottom: 10px;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 2em;
+  border: 1px solid #ccc;
+}
+body {
+  display: flex;
+  margin: 0;
+}
+/* 
+************ header ************ */
+
+header {
+  border-right: black solid 1px;
+}
+
+header div {
+  margin-top: var(--marginTop);
+  margin-bottom: var(--marginBottom);
+  writing-mode: vertical-rl;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  white-space: nowrap;
+}
+
+header div p,
+h1 {
+  margin: 0;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* ************ main ************  */
+
+main {
+  display: flex;
+}
+
+main > div {
+  /* flex: 1; alle kolonner får samme bredde */
+  max-height: 100vh; /* så kolonnerne ikke bliver højere end viewport */
+  overflow-y: auto; /* kun denne kolonne scroller */
+  padding: 1rem;
+  box-sizing: border-box;
+  /* border: 1px solid #ccc; */
+  border-right: black solid 1px;
+}
+
+main > div:first-child {
+  max-width: 300px;
+}
+/* ************ div1 ************  */
+span {
+  font-weight: bold;
+}
+
+li {
+  list-style: none;
+}
+ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  gap: 0.2rem;
+}
