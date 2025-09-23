@@ -1,6 +1,8 @@
 html {
   --marginTop: 10px;
   --marginBottom: 10px;
+  --background: #fbf2ed;
+  --yellow: #fec856;
 }
 
 img {
@@ -11,6 +13,7 @@ img {
 body {
   display: flex;
   margin: 0;
+  background-color: var(--background);
 }
 /* 
 ************ header ************ */
