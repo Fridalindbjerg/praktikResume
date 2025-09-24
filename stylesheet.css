@@ -3,6 +3,22 @@ html {
   --marginBottom: 10px;
   --background: #fbf2ed;
   --yellow: #fec856;
+  --lemonMilkRegular: "LemonMilkRegular";
+  --lemonMilkMedium: "LemonMilkMedium";
+  --lemonMilkLight: "LemonMilkLight";
+}
+
+@font-face {
+  font-family: "LemonMilkMedium";
+  src: url(assets/lemon-milk-font/LemonMilkMedium-mLZYV.otf);
+}
+@font-face {
+  font-family: "LemonMilkRegular";
+  src: url(assets/lemon-milk-font/LemonMilkRegular-X3XE2.otf);
+}
+@font-face {
+  font-family: "LemonMilkLight";
+  src: url(assets/lemon-milk-font/LemonMilkLight-owxMq.otf);
 }
 
 img {
@@ -15,10 +31,15 @@ body {
   margin: 0;
   background-color: var(--background);
 }
+h3 {
+  font-family: var(--lemonMilkLight);
+}
 /* 
 ************ header ************ */
 
-header {
+header,
+h2 {
+  font-family: var(--lemonMilkMedium);
   border-right: black solid 1px;
 }
 
@@ -41,7 +62,25 @@ h1 {
 }
 
 h1 {
+  /* background: linear-gradient(90deg, #ff7e5f, #91eac9); */
   text-align: center;
+}
+
+.build {
+  animation-name: build_kf;
+  animation-duration: s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes build_kf {
+  0% {
+    scale: 1 0;
+  }
+  100% {
+    scale: 1 1;
+  }
 }
 
 /* ************ main ************  */
