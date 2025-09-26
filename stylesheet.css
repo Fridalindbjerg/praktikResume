@@ -6,6 +6,8 @@ html {
   --lemonMilkRegular: "LemonMilkRegular";
   --lemonMilkMedium: "LemonMilkMedium";
   --lemonMilkLight: "LemonMilkLight";
+  --gap: 3rem;
+  --gapSmall: 1rem;
 }
 
 @font-face {
@@ -21,28 +23,61 @@ html {
   src: url(assets/lemon-milk-font/LemonMilkLight-owxMq.otf);
 }
 
-img {
+p,
+h1,
+h2,
+h3 {
+  hyphens: auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word; /* fallback */
+}
+
+h3 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 4rem;
+}
+h1 {
+  font-size: 3rem;
+}
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5rem;
+}
+
+.profile {
   max-width: 100%;
   border-radius: 2em;
-  border: 1px solid #ccc;
+  margin-top: 53px;
+  filter: grayscale(90%);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+}
+
+img {
+  max-width: 20px;
 }
 body {
   display: flex;
-  margin: 0;
+  max-width: 1300px;
+  margin: 0 auto;
   background-color: var(--background);
 }
-h3 {
+h3,
+span {
   font-family: var(--lemonMilkLight);
 }
+
 /* 
 ************ header ************ */
 
 header,
 h2 {
   font-family: var(--lemonMilkMedium);
+}
+header {
   border-right: black solid 1px;
 }
-
 header div {
   margin-top: var(--marginTop);
   margin-bottom: var(--marginBottom);
@@ -68,7 +103,7 @@ h1 {
 
 .build {
   animation-name: build_kf;
-  animation-duration: s;
+  animation-duration: 2s;
   animation-iteration-count: 1;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
@@ -85,34 +120,63 @@ h1 {
 
 /* ************ main ************  */
 
-main {
-  display: flex;
-}
-
 main > div {
-  /* flex: 1; alle kolonner får samme bredde */
   max-height: 100vh; /* så kolonnerne ikke bliver højere end viewport */
   overflow-y: auto; /* kun denne kolonne scroller */
   padding: 1rem;
   box-sizing: border-box;
-  /* border: 1px solid #ccc; */
   border-right: black solid 1px;
 }
 
-main > div:first-child {
-  max-width: 300px;
-}
 /* ************ div1 ************  */
 span {
   font-weight: bold;
 }
 
-li {
+li,
+a {
   list-style: none;
+  /* text-decoration: none; */
+  color: black;
 }
+
+li {
+  display: flex;
+  gap: var(--gapSmall);
+}
+
+.gap {
+  margin-top: var(--gap);
+}
+
+.gapBottom {
+  margin-bottom: var(--gap);
+}
+
+.gapSmall {
+  margin-top: var(--gapSmall);
+}
+
 ul {
   display: flex;
   flex-direction: column;
   padding: 0;
   gap: 0.2rem;
+}
+
+@media (min-width: 600px) {
+  main {
+    display: flex;
+  }
+  main > div:first-child {
+    max-width: 300px;
+  }
+
+  /* .right {
+    text-align: right;
+  } */
+
+  /* .right div {
+    text-align: left;
+  } */
 }
