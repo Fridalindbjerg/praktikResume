@@ -152,6 +152,12 @@ li img {
   gap: 30px;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
 .vertical-header {
   display: flex;
   padding: 20px;
