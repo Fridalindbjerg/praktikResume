@@ -1,3 +1,4 @@
+/* ========== VARIABLER ========== */
 html {
   --marginTop: 10px;
   --marginBottom: 10px;
@@ -7,9 +8,37 @@ html {
   --lemonMilkMedium: "LemonMilkMedium";
   --lemonMilkLight: "LemonMilkLight";
   --gap: 3rem;
+  --gapBig: 11rem;
   --gapSmall: 1rem;
 }
 
+/* html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background);
+  display: block;
+}
+.wrapper {
+  display: flex;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+main {
+  flex: 1 1 auto;
+  min-width: 0;
+} */
+
+/* ========== DEBUG: Outline alt ========== */
+/* * {
+  outline: 1px solid red;
+} */
+
+/* ========== TYPOGRAFI ========== */
 @font-face {
   font-family: "LemonMilkMedium";
   src: url(assets/lemon-milk-font/LemonMilkMedium-mLZYV.otf);
@@ -23,112 +52,58 @@ html {
   src: url(assets/lemon-milk-font/LemonMilkLight-owxMq.otf);
 }
 
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  margin: 0;
+}
+h2 {
+  font-size: clamp(2rem, 6vw, 5rem);
+  margin: 0;
+}
+h3 {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+}
+
+p {
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  line-height: 1.6rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 p,
 h1,
 h2,
 h3 {
   hyphens: auto;
   overflow-wrap: break-word;
-  word-wrap: break-word; /* fallback */
+  word-wrap: break-word;
 }
 
-h3 {
-  font-size: 2rem;
+h3,
+span {
+  font-family: var(--lemonMilkLight);
 }
+
+header,
 h2 {
-  font-size: 4rem;
-}
-h1 {
-  font-size: 3rem;
-}
-p {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.5rem;
+  font-family: var(--lemonMilkMedium);
 }
 
+/* ========== GENERELT ========== */
 .profile {
-  max-width: 100%;
-  border-radius: 2em;
-  margin-top: 53px;
-  filter: grayscale(90%);
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  margin: 2rem auto;
+  display: block;
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
 }
 
 img {
   max-width: 20px;
 }
-body {
-  display: flex;
-  max-width: 1300px;
-  margin: 0 auto;
-  background-color: var(--background);
-}
-h3,
-span {
-  font-family: var(--lemonMilkLight);
-}
 
-/* 
-************ header ************ */
-
-header,
-h2 {
-  font-family: var(--lemonMilkMedium);
-}
-header {
-  border-right: black solid 1px;
-}
-header div {
-  margin-top: var(--marginTop);
-  margin-bottom: var(--marginBottom);
-  writing-mode: vertical-rl;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 1em;
-  white-space: nowrap;
-}
-
-header div p,
-h1 {
-  margin: 0;
-  text-align: center;
-}
-
-h1 {
-  /* background: linear-gradient(90deg, #ff7e5f, #91eac9); */
-  text-align: center;
-}
-
-.build {
-  animation-name: build_kf;
-  animation-duration: 2s;
-  animation-iteration-count: 1;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-}
-
-@keyframes build_kf {
-  0% {
-    scale: 1 0;
-  }
-  100% {
-    scale: 1 1;
-  }
-}
-
-/* ************ main ************  */
-
-main > div {
-  max-height: 100vh; /* så kolonnerne ikke bliver højere end viewport */
-  overflow-y: auto; /* kun denne kolonne scroller */
-  padding: 1rem;
-  box-sizing: border-box;
-  border-right: black solid 1px;
-}
-
-/* ************ div1 ************  */
 span {
   font-weight: bold;
 }
@@ -136,47 +111,100 @@ span {
 li,
 a {
   list-style: none;
-  /* text-decoration: none; */
   color: black;
 }
 
 li {
   display: flex;
   gap: var(--gapSmall);
+  flex-wrap: wrap;
+  align-items: center;
 }
 
-.gap {
-  margin-top: var(--gap);
+/* ========== HEADER (mobil) ========== */
+header {
+  border: none;
+  margin-bottom: 2rem;
 }
-
-.gapBottom {
-  margin-bottom: var(--gap);
-}
-
-.gapSmall {
-  margin-top: var(--gapSmall);
-}
-
-ul {
+header div {
+  margin-top: var(--marginTop);
+  margin-bottom: var(--marginBottom);
+  writing-mode: horizontal-tb;
   display: flex;
   flex-direction: column;
-  padding: 0;
-  gap: 0.2rem;
+  gap: 0.5em;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
 }
 
-@media (min-width: 600px) {
+/* ========== MAIN (mobil) ========== */
+main {
+  display: block; /* én kolonne */
+}
+main > div {
+  padding: 1rem;
+}
+
+.ulTeachMe {
+  display: grid;
+  grid-template-columns: 1fr; /* altid 1 kolonne på mobil */
+  gap: var(--gap);
+}
+.ulTeachMe div {
+  width: 100%;
+}
+
+.teachMe li {
+  line-height: 2rem;
+  text-align: left;
+}
+
+/* ========== MEDIA QUERIES ========== */
+
+/* Tablet (fra 650px) */
+@media (min-width: 650px) {
+  body {
+    display: flex;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  header {
+    border-right: 1px solid black;
+    min-width: 80px;
+  }
+
+  header div {
+    writing-mode: vertical-rl;
+    flex-direction: row;
+    gap: 1em;
+  }
+
   main {
     display: flex;
   }
+
   main > div:first-child {
     max-width: 300px;
+    flex-shrink: 0;
+    border-right: 1px solid black;
   }
 
-  /* .right {
-    text-align: right;
-  } */
+  .ulTeachMe {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--gapBig);
+  }
 
-  /* .right div {
-    text-align: left;
-  } */
+  .ulTeachMe div {
+    width: auto;
+  }
+}
+
+/* Desktop (fra 1000px) */
+@media (min-width: 1000px) {
+  body {
+    max-width: 1300px;
+    margin: 0 auto;
+  }
 }
